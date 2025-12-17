@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - HealthFlow</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="auth-page">
+    <div class="auth-container">
+      <!-- Left Side - Branding -->
+      <div class="auth-background">
+        <a href="/" class="back-home">← Back to Home</a>
+        <div class="auth-brand">
+          <div class="brand-logo">🏥 HealthFlow</div>
+          <p class="brand-tagline">
+            Your personal health companion. Track workouts, nutrition,
+            medications, and health metrics in one beautiful platform.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Side - Forms -->
+      <div class="auth-form-container">
+        <div class="auth-form-wrapper">
+          <div class="form-header">
+            <h1>Welcome Back</h1>
+            <p>Sign in to continue your health journey</p>
+          </div>
+
+          <!-- Message Display -->
+          <div id="message" class="message" style="display: none"></div>
+
+          <!-- Login Form -->
+          <form id="loginForm" class="auth-form">
+            <div class="input-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                placeholder="Enter your username"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              Sign In
+            </button>
+          </form>
+
+          <!-- Register Form (Hidden by default) -->
+          <form id="registerForm" class="auth-form" style="display: none">
+            <div class="input-group">
+              <label for="regUsername">Username</label>
+              <input
+                type="text"
+                id="regUsername"
+                placeholder="Choose a username"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="regEmail">Email</label>
+              <input
+                type="email"
+                id="regEmail"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="regPassword">Password</label>
+              <input
+                type="password"
+                id="regPassword"
+                placeholder="Choose a password (min 6 characters)"
+                minlength="6"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <div class="input-group">
+                <label for="regAge">Age (Optional)</label>
+                <input
+                  type="number"
+                  id="regAge"
+                  placeholder="Age"
+                  min="1"
+                  max="120"
+                />
+              </div>
+              <div class="input-group">
+                <label for="regGender">Gender (Optional)</label>
+                <select id="regGender">
+                  <option value="">Prefer not to say</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              Create Account
+            </button>
+          </form>
+
+          <!-- Form Switch -->
+          <div class="auth-switch">
+            <p id="switchText">
+              Don't have an account? <a href="#" id="switchLink">Sign up now</a>
+            </p>
+          </div>
+
+          <!-- Demo Account Info -->
+          <div
+            class="demo-info"
+            style="
+              background: var(--gray-50);
+              padding: 1rem;
+              border-radius: var(--radius-lg);
+              text-align: center;
+            "
+          >
+            <p style="margin: 0; font-size: 0.9rem; color: var(--gray-600)">
+              <strong>Demo Account:</strong><br />
+              Username: <code>testuser</code><br />
+              Password: <code>password123</code>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+  </body>
+</html>

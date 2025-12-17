@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - HealthFlow</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="brand">
+                <span>🏥 HealthFlow</span>
+            </div>
+        </div>
+
+        <div class="sidebar-content">
+            <div class="user-profile">
+                <div class="user-avatar">👤</div>
+                <div class="user-info">
+                    <span class="username" id="usernameDisplay">Loading...</span>
+                    <span class="user-status">Active</span>
+                </div>
+            </div>
+
+            <ul class="sidebar-nav">
+                <li class="nav-item active">
+                    <a href="#dashboard" class="nav-link" data-section="dashboard">
+                        📊 Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#workouts" class="nav-link" data-section="workouts">
+                        💪 Workouts
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#nutrition" class="nav-link" data-section="nutrition">
+                        🍎 Nutrition
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#health" class="nav-link" data-section="health">
+                        ❤️ Health Metrics
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#medications" class="nav-link" data-section="medications">
+                        💊 Medications
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="btn btn-logout">
+                🚪 Logout
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="content-header">
+            <div class="header-title">
+                <h1 id="pageTitle">Dashboard</h1>
+                <p id="pageSubtitle">Welcome back! Here's your health overview.</p>
+            </div>
+            <div class="header-actions">
+                <div class="date-display">
+                    📅 <span id="currentDate">Loading...</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="content-wrapper">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <!-- Summary Cards -->
+                <div class="summary-grid">
+                    <div class="summary-card card-primary">
+                        <div class="card-icon">🔥</div>
+                        <div class="card-content">
+                            <h3 id="todayCalories">0</h3>
+                            <p>Calories Burned Today</p>
+                        </div>
+                    </div>
+                    <div class="summary-card card-success">
+                        <div class="card-icon">💪</div>
+                        <div class="card-content">
+                            <h3 id="todayWorkouts">0</h3>
+                            <p>Workouts Today</p>
+                        </div>
+                    </div>
+                    <div class="summary-card card-warning">
+                        <div class="card-icon">🍎</div>
+                        <div class="card-content">
+                            <h3 id="todayCaloriesConsumed">0</h3>
+                            <p>Calories Consumed</p>
+                        </div>
+                    </div>
+                    <div class="summary-card card-info">
+                        <div class="card-icon">💊</div>
+                        <div class="card-content">
+                            <h3 id="activeMeds">0</h3>
+                            <p>Active Medications</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h2>Quick Actions</h2>
+                    <div class="actions-grid">
+                        <button class="action-btn" data-section="workouts">
+                            💪 Log Workout
+                        </button>
+                        <button class="action-btn" data-section="nutrition">
+                            🍎 Add Meal
+                        </button>
+                        <button class="action-btn" data-section="health">
+                            ❤️ Record Metrics
+                        </button>
+                        <button class="action-btn" data-section="medications">
+                            💊 Add Medication
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h2>Recent Activity</h2>
+                    <div id="recentActivity" class="data-list">
+                        <div class="no-data">No recent activity. Start tracking your health journey!</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Workouts Section -->
+            <section id="workouts" class="content-section">
+                <div class="section-header">
+                    <h2>Workout Tracking</h2>
+                    <p>Log your exercises and track your fitness journey</p>
+                </div>
+
+                <div class="form-card">
+                    <h3>Log New Workout</h3>
+                    <form id="workoutForm" class="data-form">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="workoutType">Workout Type</label>
+                                <input type="text" id="workoutType" placeholder="e.g., Running, Yoga, Weightlifting" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="workoutDuration">Duration (minutes)</label>
+                                <input type="number" id="workoutDuration" placeholder="e.g., 30" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="workoutIntensity">Intensity</label>
+                                <select id="workoutIntensity" required>
+                                    <option value="">Select Intensity</option>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="workoutCalories">Calories Burned</label>
+                                <input type="number" id="workoutCalories" placeholder="Estimated calories">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="workoutNotes">Notes (Optional)</label>
+                            <textarea id="workoutNotes" placeholder="How did it feel? Any achievements?"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="workoutDate">Date</label>
+                            <input type="date" id="workoutDate" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Log Workout
+                        </button>
+                    </form>
+                </div>
+
+                <div class="data-list-card">
+                    <h3>Recent Workouts</h3>
+                    <div id="workoutsList" class="data-list">
+                        <div class="no-data">No workouts recorded yet. Start your fitness journey!</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nutrition Section -->
+            <section id="nutrition" class="content-section">
+                <div class="section-header">
+                    <h2>Nutrition Tracking</h2>
+                    <p>Monitor your meals and nutritional intake</p>
+                </div>
+
+                <div class="form-card">
+                    <h3>Add Food Entry</h3>
+                    <form id="nutritionForm" class="data-form">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="mealType">Meal Type</label>
+                                <select id="mealType" required>
+                                    <option value="">Select Meal</option>
+                                    <option value="breakfast">Breakfast</option>
+                                    <option value="lunch">Lunch</option>
+                                    <option value="dinner">Dinner</option>
+                                    <option value="snack">Snack</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="foodItem">Food Item</label>
+                                <input type="text" id="foodItem" placeholder="e.g., Chicken Salad" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="foodCalories">Calories</label>
+                                <input type="number" id="foodCalories" placeholder="Calories" required>
+                            </div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="foodProtein">Protein (g)</label>
+                                <input type="number" id="foodProtein" placeholder="Protein" step="0.1">
+                            </div>
+                            <div class="input-group">
+                                <label for="foodCarbs">Carbs (g)</label>
+                                <input type="number" id="foodCarbs" placeholder="Carbohydrates" step="0.1">
+                            </div>
+                            <div class="input-group">
+                                <label for="foodFats">Fats (g)</label>
+                                <input type="number" id="foodFats" placeholder="Fats" step="0.1">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="nutritionDate">Date</label>
+                            <input type="date" id="nutritionDate" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Save Entry
+                        </button>
+                    </form>
+                </div>
+
+                <div class="data-list-card">
+                    <h3>Recent Nutrition Entries</h3>
+                    <div id="nutritionList" class="data-list">
+                        <div class="no-data">No nutrition entries yet. Start tracking your meals!</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Health Metrics Section -->
+            <section id="health" class="content-section">
+                <div class="section-header">
+                    <h2>Health Metrics</h2>
+                    <p>Track your vital signs and health indicators</p>
+                </div>
+
+                <div class="form-card">
+                    <h3>Record Health Metrics</h3>
+                    <form id="metricsForm" class="data-form">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="weight">Weight (kg)</label>
+                                <input type="number" id="weight" placeholder="e.g., 70.5" step="0.1">
+                            </div>
+                            <div class="input-group">
+                                <label for="height">Height (cm)</label>
+                                <input type="number" id="height" placeholder="e.g., 175" step="0.1">
+                            </div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="heartRate">Heart Rate (bpm)</label>
+                                <input type="number" id="heartRate" placeholder="Resting heart rate">
+                            </div>
+                            <div class="input-group">
+                                <label for="bloodPressure">Blood Pressure</label>
+                                <input type="text" id="bloodPressure" placeholder="e.g., 120/80">
+                            </div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="sleepHours">Sleep (hours)</label>
+                                <input type="number" id="sleepHours" placeholder="e.g., 7.5" step="0.1">
+                            </div>
+                            <div class="input-group">
+                                <label for="waterIntake">Water (ml)</label>
+                                <input type="number" id="waterIntake" placeholder="Water consumed">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="mood">Mood</label>
+                            <select id="mood">
+                                <option value="">How are you feeling?</option>
+                                <option value="excellent">😊 Excellent</option>
+                                <option value="good">🙂 Good</option>
+                                <option value="fair">😐 Fair</option>
+                                <option value="poor">😕 Poor</option>
+                                <option value="terrible">😞 Terrible</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="healthNotes">Notes</label>
+                            <textarea id="healthNotes" placeholder="Any additional notes..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label for="metricsDate">Date</label>
+                            <input type="date" id="metricsDate" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Save Metrics
+                        </button>
+                    </form>
+                </div>
+
+                <div class="data-list-card">
+                    <h3>Health History</h3>
+                    <div id="metricsList" class="data-list">
+                        <div class="no-data">No health metrics recorded yet. Start monitoring your health!</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Medications Section -->
+            <section id="medications" class="content-section">
+                <div class="section-header">
+                    <h2>Medication Management</h2>
+                    <p>Track your medications and supplements</p>
+                </div>
+
+                <div class="form-card">
+                    <h3>Add Medication</h3>
+                    <form id="medicationsForm" class="data-form">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="medName">Medication Name</label>
+                                <input type="text" id="medName" placeholder="e.g., Vitamin D" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="medDosage">Dosage</label>
+                                <input type="text" id="medDosage" placeholder="e.g., 500mg" required>
+                            </div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="medFrequency">Frequency</label>
+                                <input type="text" id="medFrequency" placeholder="e.g., Once daily" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="medPurpose">Purpose</label>
+                                <input type="text" id="medPurpose" placeholder="e.g., Vitamin supplement">
+                            </div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="medStartDate">Start Date</label>
+                                <input type="date" id="medStartDate" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="medEndDate">End Date (Optional)</label>
+                                <input type="date" id="medEndDate">
+                            </div>
+                        </div>
+                        <div class="input-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="medIsActive" checked>
+                                <span class="checkmark"></span>
+                                Currently taking this medication
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Add Medication
+                        </button>
+                    </form>
+                </div>
+
+                <div class="data-list-card">
+                    <h3>Your Medications</h3>
+                    <div id="medicationsList" class="data-list">
+                        <div class="no-data">No medications recorded yet. Start managing your medications!</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
