@@ -16,15 +16,15 @@ With the growing role of technology in healthcare, HealthFlow aims to:
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
-- 🔐 Secure user authentication (Register / Login / Logout)
-- 🏋️ Workout tracking (type, duration, intensity, calories burned)
-- 🍎 Nutrition tracking (meals, calories, macronutrients)
-- ❤️ Health metrics (weight, BP, sleep, hydration, mood)
-- 💊 Medication tracking and management
-- 📊 Daily dashboard health summary
-- 🔒 Encrypted passwords & session-based access control
+-  Secure user authentication (Register / Login / Logout)
+-  Workout tracking (type, duration, intensity, calories burned)
+-  Nutrition tracking (meals, calories, macronutrients)
+-  Health metrics (weight, BP, sleep, hydration, mood)
+-  Medication tracking and management
+-  Daily dashboard health summary
+-  Encrypted passwords & session-based access control
 
 ---
 
@@ -48,16 +48,5 @@ With the growing role of technology in healthcare, HealthFlow aims to:
 
 ---
 
-## 🔐 Demo Account
 
-
-
-
-
-
-
-
-
-
-Use the demo account to explore the system:
 
